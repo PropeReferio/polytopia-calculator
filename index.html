@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <script src="main.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Calculator</title>
 </head>
 <body>
   <div id="html-form">
   <h2>Polytopia Battle Calculator</h2>
     <label for="attacker">Choose an attacker:</label>
-    <select name="attacker" id="attacker" tabindex="1">
+    <select name="attacker" id="attacker" tabindex="1" onchange=function()>
       <option value="warrior">Warrior</option>
       <option value="defender">Defender</option>
       <option value="archer">Archer</option>
