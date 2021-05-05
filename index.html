@@ -9,40 +9,47 @@
 <body>
   <div id="html-form">
   <h2>Polytopia Battle Calculator</h2>
+  <form id="calculator">
     <label for="attacker">Choose an attacker:</label>
+
     <select name="attacker" id="attacker" tabindex="1">
       <option value="warrior">Warrior</option>
       <option value="defender">Defender</option>
       <option value="archer">Archer</option>
       <option value="giant">Giant</option>
     </select>
+
       <input type="checkbox" id="attacker-vet" name="attacker-vet" tabindex="1">
       <label for="attacker-vet">Veteran?</label>
-    <form>
       <label for="attackerCurrentHP">Attacker current HP:</label><br>
       <input type="number" id="attackerCurrentHP" name="attackerCurrentHP" tabindex="1"><br>
       <label for="attackerMaxHP">Attacker max HP:</label><br>
       <input type="number" id="attackerMaxHP" name="attackerMaxHP" tabindex="1">
-    </form>
+
     <label for="attacker">Choose a defender:</label>
+
     <select name="defender" id="defender" tabindex="1">
       <option value="warrior">Warrior</option>
       <option value="defender">Defender</option>
       <option value="archer">Archer</option>
       <option value="giant">Giant</option>
     </select>
+
       <input type="checkbox" id="defender-vet" name="defender-vet" tabindex="1">
       <label for="defender-vet">Veteran?</label>
-    <form>
       <label for="defenderCurrentHP">Defender current HP:</label><br>
       <input type="number" id="defenderCurrentHP" name="defenderCurrentHP" tabindex="1"><br>
       <label for="defenderMaxHP">Defender max HP:</label><br>
       <input type="number" id="defenderMaxHP" name="defenderMaxHP" tabindex="1">
-    </form>
       <input type="checkbox" id="defenseBonus" name="defenseBonus" tabindex="1">
       <label for="defenseBonus">Defense bonus?</label>
       <input type="checkbox" id="wallBonus" name="wallBonus" tabindex="1">
       <label for="wallBonus">Wall bonus?</label>
+
+      <input type="button" id="attack" name="attack" value="Attack">
+      <!-- <input type="button" id="multi" name="multi" value="Multi"><br> -->
+
+      </form>
   </div>
 </body>
 </html>
