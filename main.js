@@ -14,3 +14,19 @@ class PolyUnit {
      defender.cur_hp -= round((defenseForce/totalDamage)*defender.defense*4.5);
    }
 }
+
+units = {
+	'Warrior': new PolyUnit(2, 2, 10, 10),
+	'Defender': new PolyUnit(1, 3, 15, 15),
+	'Archer': new PolyUnit(2, 1, 10, 10),
+	'Giant': new PolyUnit(5, 4, 40, 40)
+}
+
+console.log(units['Warrior'].cur_hp)
+// If selection is 'Warrior', attacker = units['Warrior']
+
+new_obj = {
+	'apple': 'red'
+}
+
+console.log(new_obj['apple'])
