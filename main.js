@@ -38,4 +38,18 @@ const calculateDamage = () => {
 	const defenderDefense = document.getElementById('defenderDefense').value;
 	const defenderCurHP = document.getElementById('defenderCurHP').value;
 	const defenderMaxHP = document.getElementById('defenderMaxHP').value;
+
+	// TODO:
+	let defenseBonus = 1
+
+	attackForce = attackerAttack * (attackerCurHP / attackerMaxHP)
+	defenseForce = defenderDefense * (defenderCurHP / defenderMaxHP) * defenseBonus 
+	totalDamage = attackForce + defenseForce
+	attackResult = round((attackForce / totalDamage) * attackerAttack * 4.5) 
+	defenseResult = round((defenseForce / totalDamage) * defenderDefense * 4.5)
+
+	attackerFinalHP = attackerCurHP - defenseResult
+	defenderFinalHP = defenderCurHP - attackResult
+
+	console.log("Defender HP was " + defenderCurHP + ". Now it is " )
 }
