@@ -1,3 +1,24 @@
+window.onload=function() {
+  document.getElementById("attacker-vet").addEventListener("change", adjAttackerVetHP);
+  document.getElementById("defender-vet").addEventListener("change", adjDefenderVetHP);
+}
+
+function adjAttackerVetHP() {
+  if (this.checked) {
+    document.getElementById("attackerCurrentHP").value = document.getElementById("attackerCurrentHP").value+5;
+  } else {
+    document.getElementById("attackerCurrentHP").value -= 5;
+  }
+}
+
+function adjDefenderVetHP() {
+  if (this.checked) {
+    document.getElementById("defenderCurrentHP").value = document.getElementById("defenderCurrentHP").value+5;
+  } else {
+    document.getElementById("defenderCurrentHP").value -= 5;
+  }
+}
+
 const units = {
 	"Warrior": new PolyUnit(2, 2, 10, 10),
 	"Defender": new PolyUnit(1, 3, 15, 15)
