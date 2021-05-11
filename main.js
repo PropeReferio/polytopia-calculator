@@ -67,10 +67,16 @@ function calculateDamage () {
 	attackerFinalHP = attackerCurHP - defenseResult
 	defenderFinalHP = defenderCurHP - attackResult
 
-	console.log("Defender HP was " + defenderCurHP + ". Now it is " + defenderFinalHP)
-	let defensePara = document.createElement("p");
-	var node = document.createTextNode("Defender HP was " + defenderCurHP + ". Now it is " + defenderFinalHP);
-	defensePara.appendChild(node);
+	// Create paragraph for defender health
+	let defenderPara = document.createElement("p");
+	let node = document.createTextNode("Defender HP was " + defenderCurHP + ". Now it is " + defenderFinalHP + ".");
+	defenderPara.appendChild(node);
 	let body = document.getElementsByTagName("body")[0];
-	body.appendChild(defensePara);
+	body.appendChild(defenderPara);
+
+	// Create paragraph for attacker health
+	let attackerPara = document.createElement("p");
+	node = document.createTextNode("Attacker HP was " + attackerCurHP + ". Now it is " + attackerFinalHP + ".");
+	attackerPara.appendChild(node);
+	body.appendChild(attackerPara);
 }
