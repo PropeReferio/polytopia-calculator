@@ -19,11 +19,6 @@ function adjDefenderVetHP() {
   }
 }
 
-const units = {
-	"Warrior": new PolyUnit(2, 2, 10, 10),
-	"Defender": new PolyUnit(1, 3, 15, 15)
-}
-
 class PolyUnit {
   constructor(attack, defense, max_hp, cur_hp) {
     this.attack = attack;
@@ -51,13 +46,13 @@ const changeDefender = (polyUnitObj) => {
   $('#defenderMaxHP').val() = polyUniObj.max_hp
 }
 
-const calculateDamage = () => {
+function calculateDamage () {
 	const attackerAttack = document.getElementById('attackerAttack').value;
-	const attackerCurHP = document.getElementById('attackerCurHP').value;
+	const attackerCurHP = document.getElementById('attackerCurrentHP').value;
 	const attackerMaxHP = document.getElementById('attackerMaxHP').value;
 
 	const defenderDefense = document.getElementById('defenderDefense').value;
-	const defenderCurHP = document.getElementById('defenderCurHP').value;
+	const defenderCurHP = document.getElementById('defenderCurrentHP').value;
 	const defenderMaxHP = document.getElementById('defenderMaxHP').value;
 
 	// TODO:
@@ -66,11 +61,16 @@ const calculateDamage = () => {
 	attackForce = attackerAttack * (attackerCurHP / attackerMaxHP)
 	defenseForce = defenderDefense * (defenderCurHP / defenderMaxHP) * defenseBonus 
 	totalDamage = attackForce + defenseForce
-	attackResult = round((attackForce / totalDamage) * attackerAttack * 4.5) 
-	defenseResult = round((defenseForce / totalDamage) * defenderDefense * 4.5)
+	attackResult = Math.round((attackForce / totalDamage) * attackerAttack * 4.5) 
+	defenseResult = Math.round((defenseForce / totalDamage) * defenderDefense * 4.5)
 
 	attackerFinalHP = attackerCurHP - defenseResult
 	defenderFinalHP = defenderCurHP - attackResult
 
-	console.log("Defender HP was " + defenderCurHP + ". Now it is " )
+	console.log("Defender HP was " + defenderCurHP + ". Now it is " + defenderFinalHP)
+	let defensePara = document.createElement("p");
+	var node = document.createTextNode("Defender HP was " + defenderCurHP + ". Now it is " + defenderFinalHP);
+	defensePara.appendChild(node);
+	let body = document.getElementsByTagName("body")[0];
+	body.appendChild(defensePara);
 }
