@@ -1,0 +1,38 @@
+p = d * (i / num);
+x = width * (count / max);
+
+p = attack * attackhp / attackmaxhp
+x = defense * defensehp / defensemaxhp
+
+auExclude - reduces something by 20%
+
+n = p + x;
+  /** @type {number} */
+  diff = Math.round(p / n * d * 4.5); // Damage done to defender by attacker
+  count = count - diff;
+
+  diff = Math.round(x / n * width * 4.5); // Damage done to attacker to defender
+  defender - 3 def
+  warrior - 2 attk
+  3 / 5 * 3 * 4.5
+  i = i - diff;
+
+count = parseInt(document.getElementById("defensehp").value);
+
+    d = parseFloat(document.getElementById("attack").value);
+    /** @type {number} */
+    width = parseFloat(document.getElementById("defense").value);
+    /** @type {number} */
+    i = parseInt(document.getElementById("attackhp").value);
+    /** @type {number} */
+    count = parseInt(document.getElementById("defensehp").value);
+    /** @type {number} */
+    total = parseInt(document.getElementById("defensehp").value);
+    /** @type {number} */
+    num = parseInt(document.getElementById("attackmaxhp").value);
+    /** @type {number} */
+    max = parseInt(document.getElementById("defensemaxhp").value);
+    type = document.getElementById("selectattacker").value;
+    token = document.getElementById("selectdefender").value;
+    isApps = document.getElementById("attb").checked;
+    autoCompile = document.getElementById("defp").checked;

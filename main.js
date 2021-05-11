@@ -19,11 +19,6 @@ function adjDefenderVetHP() {
   }
 }
 
-const units = {
-	"Warrior": new PolyUnit(2, 2, 10, 10),
-	"Defender": new PolyUnit(1, 3, 15, 15)
-}
-
 class PolyUnit {
   constructor(attack, defense, max_hp, cur_hp) {
     this.attack = attack;
@@ -51,12 +46,37 @@ const changeDefender = (polyUnitObj) => {
   $('#defenderMaxHP').val() = polyUniObj.max_hp
 }
 
-const calculateDamage = () => {
+function calculateDamage () {
 	const attackerAttack = document.getElementById('attackerAttack').value;
-	const attackerCurHP = document.getElementById('attackerCurHP').value;
+	const attackerCurHP = document.getElementById('attackerCurrentHP').value;
 	const attackerMaxHP = document.getElementById('attackerMaxHP').value;
 
 	const defenderDefense = document.getElementById('defenderDefense').value;
-	const defenderCurHP = document.getElementById('defenderCurHP').value;
+	const defenderCurHP = document.getElementById('defenderCurrentHP').value;
 	const defenderMaxHP = document.getElementById('defenderMaxHP').value;
+
+	// TODO:
+	let defenseBonus = 1
+
+	attackForce = attackerAttack * (attackerCurHP / attackerMaxHP)
+	defenseForce = defenderDefense * (defenderCurHP / defenderMaxHP) * defenseBonus 
+	totalDamage = attackForce + defenseForce
+	attackResult = Math.round((attackForce / totalDamage) * attackerAttack * 4.5) 
+	defenseResult = Math.round((defenseForce / totalDamage) * defenderDefense * 4.5)
+
+	attackerFinalHP = attackerCurHP - defenseResult
+	defenderFinalHP = defenderCurHP - attackResult
+
+	// Create paragraph for defender health
+	let defenderPara = document.createElement("p");
+	let node = document.createTextNode("Defender HP was " + defenderCurHP + ". Now it is " + defenderFinalHP + ".");
+	defenderPara.appendChild(node);
+	let body = document.getElementsByTagName("body")[0];
+	body.appendChild(defenderPara);
+
+	// Create paragraph for attacker health
+	let attackerPara = document.createElement("p");
+	node = document.createTextNode("Attacker HP was " + attackerCurHP + ". Now it is " + attackerFinalHP + ".");
+	attackerPara.appendChild(node);
+	body.appendChild(attackerPara);
 }
